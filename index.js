@@ -2,7 +2,7 @@
 
 const util = require('util');
 
-const data = require('./data.json');
+const data = require(process.argv[2]);
 
 //creates input and output
 const readline = require('readline').createInterface({
