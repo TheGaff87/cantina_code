@@ -2,6 +2,7 @@
 
 const util = require('util');
 
+//Takes local location of json file as command line argument ('./data.json')
 const data = require(process.argv[2]);
 
 //creates input and output
@@ -39,10 +40,9 @@ function traverse(Obj, term) {
                 }
             } else if ((key === 'identifier') && (term.slice(0, 1) == '#') && (term.slice(1, term.length) == value)) {
                 console.log(util.inspect(Obj, { depth: null }))
-            } else {
-                //if current object has nested objects, continue traversing
-                traverse(value, term);
             }
+            //continue traversing as needed
+            traverse(value, term);
         });
     }
 }
